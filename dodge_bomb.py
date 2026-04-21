@@ -25,7 +25,7 @@ def check_bound(rct:pg.Rect) -> tuple[bool,bool]:
         tate = False
     return yoko,tate
 
-def game_over(screen: pg.Surface) -> None:
+def game_over(screen: pg.Surface) -> None: # 演習1
     black_screen = pg.Surface((WIDTH,HEIGHT))
     pg.draw.rect(black_screen,(0,0,0),(0,0,WIDTH,HEIGHT))
     black_screen.set_alpha(150)
@@ -38,8 +38,6 @@ def game_over(screen: pg.Surface) -> None:
     screen.blit(kk_img, [WIDTH//2 + 220, HEIGHT//2 - 80])
     pg.display.update()
     time.sleep(5)
-    
-
 
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
@@ -57,7 +55,8 @@ def main():
     vx,vy = +5,+5
 
     clock = pg.time.Clock()
-    tmr = 0
+    tmr = 0         
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: 
@@ -93,6 +92,7 @@ def main():
         pg.display.update()
         tmr += 1
         clock.tick(50)
+
 
 
 if __name__ == "__main__":
